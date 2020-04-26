@@ -2,10 +2,11 @@ import Link from 'next/link';
 import fs from 'fs';
 // locals
 import SiteLayout from '../comps/SiteLayout';
+import '../scss/styles.scss';
 
 const Home = ({ slugs }) => (
     <SiteLayout>
-        <div>
+        <div className="container-fluid">
             slugs:
             {slugs.map(slug => {
                 return (
