@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.9.11",
+    "@material-ui/icons": "^4.9.1",
     "gray-matter": "^4.0.2",
     "marked": "^0.8.2",
     "next": "9.3.1",
