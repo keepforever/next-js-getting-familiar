@@ -1,0 +1,124 @@
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: $border-radius;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    text-transform: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+        text-decoration: none;
+        outline: none;
+    }
+
+    &:focus {
+        outline: 0;
+        box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
+    }
+
+    .feather {
+        width: 1.2em;
+        height: 1.2em;
+        position: relative;
+        vertical-align: middle;
+    }
+    .feather-check {
+        top: -2px;
+    }
+}
+
+@mixin make-button (
+    $background,
+    $border,
+    $color: color-yiq($background),
+    $hover-background: darken($background, 7.5%),
+    $hover-border: darken($border, 10%),
+    $hover-color: color-yiq($hover-background),
+    $active-background: darken($background, 10%),
+    $active-border: darken($border, 12.5%),
+    $active-color: color-yiq($active-background)
+) {
+    background-color: $background;
+    border-color: $border;
+    color: $color;
+
+    &:hover, &:focus {
+        background-color: $hover-background;
+        border-color: $hover-border;
+        color: $hover-color;
+    }
+    &:active {
+        background-color: $active-background;
+        border-color: $active-border;
+        color: $active-color;
+    }
+}
+
+.btn-link {
+    color: $primary;
+    font-weight: inherit;
+    text-decoration: none;
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: underline;
+    }
+}
+
+@mixin make-outline-button (
+    $color,
+    $color-hover: color-yiq($color),
+    $active-background: $color,
+    $active-border: $color,
+    $active-color: color-yiq($active-background)
+) {
+    border-color: $color;
+    color: $color;
+
+    &:hover, &:focus {
+        background-color: $color;
+        border-color: $color;
+        color: $color-hover;
+    }
+    &:active {
+        background-color: $active-background;
+        border-color: $active-border;
+        color: $active-color;
+    }
+}
+
+@each $color, $value in $themeColors {
+    .btn-#{$color} {
+        @include make-button($value, $value);
+    }
+}
+
+@each $color, $value in $themeColors {
+    .btn-outline-#{$color} {
+        @include make-outline-button($value);
+    }
+}
+
+.btn-lg {
+    padding: .5rem 1rem;
+    font-size: $font-size-lg;
+}
+.btn-sm {
+    padding: .25rem .5rem;
+    font-size: $font-size-sm;
+}
