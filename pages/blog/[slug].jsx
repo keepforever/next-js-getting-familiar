@@ -20,14 +20,13 @@ const Post = ({ htmlString, data }) => {
 export const getStaticPaths = async () => {
     //  could also readdirAsync async if we needed a promise
     const files = fs.readdirSync('posts'); // files is an array of filename strings.
-    console.log('files: ', files);
+    // console.log('files: ', files);
     const paths = files.map(filename => ({
         params: {
             slug: filename.replace('.md', '')
         }
     }));
-    console.log('paths: ', paths);
-
+    // console.log('paths: ', paths);
     return {
         paths,
         fallback: false

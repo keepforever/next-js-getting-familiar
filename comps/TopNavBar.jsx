@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-const TopNavBar = () => {
+const TopNavBar = ({ onToggleTheme = () => {} }) => {
     const classes = useStyles();
 
     return (
@@ -27,7 +27,9 @@ const TopNavBar = () => {
                     <Typography variant="h6" className={classes.title}>
                         Brian Cilenti Dot Com
                     </Typography>
-                    <Button color="inherit">Login</Button>
+                    <Button onClick={onToggleTheme} color="inherit">
+                        ToggleThemeX
+                    </Button>
                 </Toolbar>
             </AppBar>
         </div>
