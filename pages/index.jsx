@@ -1,23 +1,24 @@
 import Link from 'next/link';
 import fs from 'fs';
+import { Grid } from '@material-ui/core';
+
 // locals
 import SiteLayout from '../comps/SiteLayout';
 import '../scss/styles.scss';
 
 const Home = ({ slugs }) => (
     <SiteLayout>
-        <div className="container-fluid">
-            slugs:
+        <Grid container spacing={3}>
             {slugs.map(slug => {
                 return (
-                    <div key={slug}>
+                    <Grid key={slug} item xs={12}>
                         <Link href={'/blog/' + slug}>
                             <a>{'/blog/' + slug}</a>
                         </Link>
-                    </div>
+                    </Grid>
                 );
             })}
-        </div>
+        </Grid>
     </SiteLayout>
 );
 

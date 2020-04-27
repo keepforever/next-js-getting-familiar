@@ -4,16 +4,19 @@ import path from 'path';
 import matter from 'gray-matter';
 import Head from 'next/head';
 import marked from 'marked';
+import SiteLayout from '../../comps/SiteLayout';
+import '../../scss/styles.scss';
 
 const Post = ({ htmlString, data }) => {
     return (
-        <>
+        <SiteLayout>
             <Head>
                 <title>{data.title}</title>
                 <meta title="description" content={data.description} />
             </Head>
-            <div dangerouslySetInnerHTML={{ __html: htmlString }} />
-        </>
+
+            <div className="p-3" dangerouslySetInnerHTML={{ __html: htmlString }} />
+        </SiteLayout>
     );
 };
 

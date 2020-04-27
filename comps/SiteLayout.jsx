@@ -19,8 +19,8 @@ const SiteLayout = ({ children }) => {
 
     return (
         <ThemeProvider theme={muiTheme}>
-            <Paper style={{ minHeight: '100vh' }}>
-                <TopNavBar onToggleTheme={handleToggleTheme}/>
+            <Paper style={{ minHeight: '100vh', borderRadius: 0 }}>
+                <TopNavBar onToggleTheme={handleToggleTheme} themeMode={themeMode} />
                 <>{children}</>
             </Paper>
         </ThemeProvider>
