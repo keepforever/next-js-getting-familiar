@@ -2,25 +2,21 @@ import { useState } from 'react';
 import Link from 'next/link';
 import TopNavBar from '../comps/TopNavBar';
 import { Paper, ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core';
+import { useDarkMode } from '../utils';
 
 const SiteLayout = ({ children }) => {
-    const [themeMode, setThemeMode] = useState('dark');
+    const [theme, handleToggleTheme] = useDarkMode();
 
-    console.log('\n', '\n', `themeMode = `, themeMode, '\n', '\n');
     const muiTheme = createMuiTheme({
         palette: {
-            type: themeMode
+            type: theme
         }
     });
-
-    const handleToggleTheme = () => {
-        setThemeMode(themeMode === 'light' ? 'dark' : 'light');
-    };
 
     return (
         <ThemeProvider theme={muiTheme}>
             <Paper style={{ minHeight: '100vh', borderRadius: 0 }}>
-                <TopNavBar onToggleTheme={handleToggleTheme} themeMode={themeMode} />
+                <TopNavBar onToggleTheme={handleToggleTheme} themeMode={theme} />
                 <>{children}</>
             </Paper>
         </ThemeProvider>
