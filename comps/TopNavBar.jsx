@@ -1,16 +1,7 @@
 import MenuIcon from '@material-ui/icons/Menu';
-
-import {
-    AppBar,
-    Grid,
-    Toolbar,
-    Typography,
-    Button,
-    IconButton,
-    FormControlLabel,
-    Switch,
-    makeStyles
-} from '@material-ui/core';
+import Link from 'next/link';
+// prettier-ignore
+import { AppBar, Grid, Toolbar, Typography, Button, IconButton, FormControlLabel, Switch, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -29,13 +20,21 @@ const TopNavBar = ({ onToggleTheme = () => {}, themeMode = 'dark' }) => {
             <AppBar position="static">
                 <Toolbar>
                     <Grid container>
-                        <Grid direction="row" item xs={6}>
-                            <Typography variant="h6" className={classes.title}>
-                                KeepForever
+                        <Link href="/index">
+                            <Grid container direction="row" item xs={4} alignItems="center">
+                                <Typography style={{ cursor: 'pointer' }} variant="h6" className={classes.title}>
+                                    KeepForever
+                                </Typography>
+                            </Grid>
+                        </Link>
+                        <Grid direction="row" container item xs={4} alignItems="center">
+                            <Typography variant="h6" color="inherit">
+                                Test
                             </Typography>
                         </Grid>
-                        <Grid direction="row" item  container xs={6} justify="flex-end">
+                        <Grid direction="row" item container xs={4} justify="flex-end">
                             <FormControlLabel
+                                style={{ color: 'white' }}
                                 color="secondary"
                                 control={<Switch checked={themeMode === 'dark'} onChange={onToggleTheme} />}
                                 label={themeMode}

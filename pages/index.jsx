@@ -11,7 +11,7 @@ const Home = ({ slugs }) => (
         <Grid container spacing={3}>
             {slugs.map(slug => {
                 return (
-                    <Grid key={slug} item xs={12}>
+                    <Grid key={slug} item xs={4}>
                         <Link href={'/blog/' + slug}>
                             <a>{'/blog/' + slug}</a>
                         </Link>
